@@ -30,9 +30,6 @@ module Pushpop
     def send_message
       notifier = ::Slack::Notifier.new WEBHOOK_URL
 
-      puts _message
-      puts options
-
       notifier.ping _message, options
     end
 

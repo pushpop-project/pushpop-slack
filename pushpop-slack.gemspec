@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.email       = "joe@keen.io"
   s.homepage    = "https://github.com/pushpop-project/pushpop-slack"
   s.summary     = "Send messages to Slack via Pushpop!"
+  s.description = "pushpop-slack allows you to send messages to your slack channel inside of a Pushpop job"
 
   s.add_dependency "pushpop"
 

@@ -16,6 +16,7 @@ module Pushpop
     attr_accessor :_message
     attr_accessor :_icon
     attr_accessor :_icon_type
+    attr_accessor :_attachments
 
     def run(last_response=nil, step_responses=nil)
 
@@ -54,6 +55,10 @@ module Pushpop
         opts["icon_#{_icon_type}"] = _icon
       end
 
+      if _attachments
+        opts['attachments'] = _attachments
+      end
+
       return opts
     end
 
@@ -67,6 +72,12 @@ module Pushpop
 
     def message(message)
       self._message = ::Slack::Notifier::LinkFormatter.format(message)
+    end
+
+    def attachment(attachment)
+      self._attachments = [] unless self._attachments
+
+      self._attachments.push(attachment)
     end
 
     def icon(icon)

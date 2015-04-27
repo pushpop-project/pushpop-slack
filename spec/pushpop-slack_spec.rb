@@ -72,4 +72,45 @@ describe Pushpop::Slack do
 
     expect(step._message).to include('<https://keen.io|this link>')
   end
+
+  it 'sets attachments' do
+    step = Pushpop::Slack.new do
+      first_a = {
+        fallback: 'tester',
+        text: 'heyo',
+        color: 'good'
+      }
+
+      message 'nothing'
+      attachment first_a
+    end 
+
+    step.configure
+
+    expect(step.options['attachments'].size).to eq(1)
+  end
+
+  it 'sets multiple' do
+    step = Pushpop::Slack.new do
+      first_a = {
+        fallback: 'tester',
+        text: 'heyo',
+        color: 'good'
+      }
+
+      second_a = {
+        fallback: 'tester 2',
+        text: 'sup',
+        color: 'bad'
+      }
+
+      message 'nothing'
+      attachment first_a
+      attachment second_a
+    end 
+
+    step.configure
+
+    expect(step.options['attachments'].size).to eq(2)
+  end
 end

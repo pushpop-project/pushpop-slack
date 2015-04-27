@@ -14,6 +14,8 @@ module Pushpop
     attr_accessor :_channel
     attr_accessor :_username
     attr_accessor :_message
+    attr_accessor :_icon
+    attr_accessor :_icon_type
 
     def run(last_response=nil, step_responses=nil)
 
@@ -48,6 +50,10 @@ module Pushpop
         opts['username'] = _username
       end
 
+      if _icon && _icon_type
+        opts["icon_#{_icon_type}"] = _icon
+      end
+
       return opts
     end
 
@@ -61,6 +67,27 @@ module Pushpop
 
     def message(message)
       self._message = message
+    end
+
+    def icon(icon)
+      if icon[0..3] == 'http'
+        self._icon_type = 'url'
+        self._icon = icon
+      else
+        self._icon_type = 'emoji'
+        self._icon = icon
+
+        # Make sure the emoji is wrapped in colons
+        if self._icon[0] != ':'
+          self._icon = ":#{self._icon}"
+        end
+
+        if self._icon[self._icon.length - 1] != ':'
+          self._icon = "#{self._icon}:"
+        end
+      end
+
+      self._icon
     end
 
     def configure(last_response=nil, step_responses=nil)

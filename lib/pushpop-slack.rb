@@ -17,6 +17,7 @@ module Pushpop
     attr_accessor :_icon
     attr_accessor :_icon_type
     attr_accessor :_attachments
+    attr_accessor :_unfurl
 
     def run(last_response=nil, step_responses=nil)
 
@@ -59,6 +60,10 @@ module Pushpop
         opts['attachments'] = _attachments
       end
 
+      if _unfurl
+        opts['unfurl_links'] = true
+      end
+
       return opts
     end
 
@@ -99,6 +104,10 @@ module Pushpop
       end
 
       self._icon
+    end
+
+    def unfurl(should = true)
+      self._unfurl = should
     end
 
     def configure(last_response=nil, step_responses=nil)

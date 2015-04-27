@@ -113,4 +113,15 @@ describe Pushpop::Slack do
 
     expect(step.options['attachments'].size).to eq(2)
   end
+
+  it 'unfurls links' do
+    step = Pushpop::Slack.new do
+      message 'nothing'
+      unfurl
+    end
+
+    step.configure
+
+    expect(step.options['unfurl_links']).to eq(true)
+  end
 end

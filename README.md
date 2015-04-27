@@ -1,4 +1,4 @@
-## pushpop-plugin
+## pushpop-slack
 
 A [Pushpop](https://github.com/pushpop-project/pushpop) plugin for sending messages to Slack
 

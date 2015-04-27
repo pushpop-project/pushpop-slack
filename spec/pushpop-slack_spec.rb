@@ -62,4 +62,14 @@ describe Pushpop::Slack do
 
     expect(step.options['icon_emoji']).to eq(':ghost:')
   end
+
+  it 'should format links in the message' do
+    step = Pushpop::Slack.new do
+      message 'Check out [this link](https://keen.io) to Keen!'
+    end
+
+    step.configure
+
+    expect(step._message).to include('<https://keen.io|this link>')
+  end
 end

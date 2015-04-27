@@ -66,7 +66,7 @@ module Pushpop
     end
 
     def message(message)
-      self._message = message
+      self._message = ::Slack::Notifier::LinkFormatter.format(message)
     end
 
     def icon(icon)

@@ -62,8 +62,7 @@
       <div class="row" style="position: relative;">
 
         <div class="col-sm-6">
-          <pre>
-            <code>
+          <pre class="language-ruby line-numbers"><code>
 job do
   every 1.hour
 
@@ -83,9 +82,7 @@ job do
     username 'PushPop'
     message "We're on fire! We've had #{step_responses['keen']} pageviews in the past hour!"
   end
- end
-          </code>
-          </pre>
+ end      </code></pre>
         </div>
 
         <div class="col-sm-6 example-message">
@@ -121,5 +118,7 @@ job do
   <script type="text/javascript" src="assets/lib/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="assets/lib/keen-js/dist/keen.min.js"></script>
+  <script type="text/javascript" src="assets/js/prism.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/css/prism.css" />
 </body>
 </html>

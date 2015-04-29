@@ -143,9 +143,7 @@ h3 {
 }
 
 .love {
-  border-top: 1px solid #d7d7d7;
   color: #546678;
-  margin: 24px 0 0;
   padding: 15px 0;
   text-align: center;
 }
@@ -213,20 +211,41 @@ pre code {
   transform: translateX(-50%);
 }
 
+.ctas {
+  background-color: #3d4a57;
+  margin-top: 12px;
+  padding: 48px 0;
+  text-align: center;
+}
+
 .cta-btn {
   background: #00bbde;
   border: 2px solid #00bbde;
   color: #fff;
-  display: block;
+  display: inline-block;
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: 700;
-  margin: 48px auto 12px;
-  padding: 12px 0 6px;
+  padding: 21px 0;
   width: 320px;
 }
 
-.cta-btn:hover {
+.cta-secondary-btn {
+  background: #00bbde;
+  border: 2px solid #00bbde;
+  color: #fff;
+  display: inline-block;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 24px 12px 0 12px;
+  padding: 6px 18px;
+  opacity: .75;
+  width: 144px;
+}
+
+.cta-btn:hover,
+.cta-secondary-btn:hover {
   background: #0099b6;
   border-color: #0099b6;
   color: #fff;
@@ -252,7 +271,14 @@ pre code {
     font-size: 36px;
   }
 
-  .cta-btn {
+  .ctas {
+    padding: 24px 0;
+  }
+
+  .cta-btn,
+  .cta-secondary-btn {
     width: 100%;
+    margin: 12px 16px;
+    box-sizing: border-box;
   }
 }

@@ -7,6 +7,7 @@
   <link rel="stylesheet" type='text/css' href="assets/lib/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" type='text/css' href="assets/css/keen-static.css" />
   <link rel="stylesheet" type='text/css' href="assets/css/keen-dashboards.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/prism.css" />
 </head>
 <body>
 
@@ -119,6 +120,18 @@ job do
   <script type="text/javascript" src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="assets/lib/keen-js/dist/keen.min.js"></script>
   <script type="text/javascript" src="assets/js/prism.js"></script>
-  <link rel="stylesheet" type="text/css" href="assets/css/prism.css" />
+  <script type="text/javascript" src="assets/js/common-web.min.js"></script>
+  <script type='text/javascript'>
+    CommonWeb.Keen.Client = new Keen({
+      projectId: '55424a1d672e6c5e6ede3b73',
+      writeKey: '820be8291cfd1d8afa0ab1211fa7eacbf801d595be9256b313c73ff8de90a94c37aa6b7d062a83ae0ed0de273756e06a4bc4bf86d471b92d900536814990dd3a3587946bae050cf2a1bd0760047335095b20c04dff85761502cc424b43ba9ea970a28c6e210c5da256138b8a05cd1d7a'
+    });
+
+    CommonWeb.Callback = CommonWeb.Keen.Callback;
+
+    CommonWeb.trackSession();
+    CommonWeb.trackPageview();
+    CommonWeb.trackClicks();
+  </script>
 </body>
 </html>

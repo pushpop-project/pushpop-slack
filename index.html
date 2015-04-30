@@ -127,6 +127,7 @@ job do
       writeKey: '820be8291cfd1d8afa0ab1211fa7eacbf801d595be9256b313c73ff8de90a94c37aa6b7d062a83ae0ed0de273756e06a4bc4bf86d471b92d900536814990dd3a3587946bae050cf2a1bd0760047335095b20c04dff85761502cc424b43ba9ea970a28c6e210c5da256138b8a05cd1d7a'
     });
 
+    CommonWeb.addGlobalProperties(CommonWeb.Keen.globalProperties);
     CommonWeb.Callback = CommonWeb.Keen.Callback;
 
     CommonWeb.trackSession();

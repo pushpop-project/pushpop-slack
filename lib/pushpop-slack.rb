@@ -21,14 +21,15 @@ module Pushpop
 
     def run(last_response=nil, step_responses=nil)
 
-      configure(last_response, step_responses)
+      ret = configure(last_response, step_responses)
 
       unless _message
        raise 'Please set the message to send to Slack'
       end
 
       send_message
-    
+
+      ret
     end
 
     def send_message

@@ -1,11 +1,26 @@
 require 'spec_helper'
 
 describe Pushpop::Slack do
-  it 'should make sure there is a message' do
+  it 'should not send if there is no message' do
     step = Pushpop::Slack.new do
     end 
 
-    expect{step.run}.to raise_error
+    expect(step).not_to receive(:send_message)
+
+    step.configure
+    step.run
+  end
+
+  it 'should send if there is a message' do
+    step = Pushpop::Slack.new do
+      message 'nothing'
+    end
+
+    allow(step).to receive(:send_message)
+    expect(step).to receive(:send_message)
+
+    step.configure
+    step.run
   end
 
   it 'should prepend a # to the channel if its not there' do

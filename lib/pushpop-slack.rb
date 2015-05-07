@@ -23,11 +23,9 @@ module Pushpop
 
       ret = configure(last_response, step_responses)
 
-      unless _message
-       raise 'Please set the message to send to Slack'
+      if _message
+        send_message
       end
-
-      send_message
 
       ret
     end

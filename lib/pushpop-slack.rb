@@ -31,9 +31,11 @@ module Pushpop
     end
 
     def send_message
-      notifier = ::Slack::Notifier.new WEBHOOK_URL
+      unless WEBHOOK_URL.nil? || WEBHOOK_URL.empty?
+        notifier = ::Slack::Notifier.new WEBHOOK_URL
 
-      notifier.ping _message, options
+        notifier.ping _message, options
+      end
     end
 
     def options

@@ -23,19 +23,23 @@ module Pushpop
 
       ret = configure(last_response, step_responses)
 
-      unless _message
-       raise 'Please set the message to send to Slack'
+      if _message
+        send_message
+      else
+        Pushpop.logger.debug("No slack message sent - message was not set")
       end
-
-      send_message
 
       ret
     end
 
     def send_message
-      notifier = ::Slack::Notifier.new WEBHOOK_URL
+      unless WEBHOOK_URL.nil? || WEBHOOK_URL.empty?
+        notifier = ::Slack::Notifier.new WEBHOOK_URL
 
-      notifier.ping _message, options
+        notifier.ping _message, options
+      else
+        Pushpop.logger.debug("Could not send slack message - SLACK_WEBHOOK_URL is nil or empty")
+      end
     end
 
     def options

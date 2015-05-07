@@ -139,4 +139,45 @@ describe Pushpop::Slack do
 
     expect(step.options['unfurl_links']).to eq(true)
   end
+  
+  it 'clears everything out at the beginning of the run' do
+    username = nil
+    message = nil
+    icon = nil
+    icon_type = nil
+    attachments = nil
+    unf = nil
+
+    step = Pushpop::Slack.new do
+      username = self._username
+      message = self._message
+      icon = self._icon
+      icon_type = self._icon_type
+      attachments = self._attachments
+      unf = self._unfurl
+
+      attch = { test: 'thing' }
+      
+      message 'test'
+      channel '#test'
+      username 'test'
+      icon 'http://a.fake.url'
+      attachment attch
+      attachment attch
+      unfurl true
+    end
+
+    step.configure
+
+    # Run it twice - the first time sets values
+    step.run
+    step.run
+
+    expect(username).to be_nil
+    expect(message).to be_nil
+    expect(icon).to be_nil
+    expect(icon_type).to be_nil
+    expect(attachments).to be_nil
+    expect(unf).to be_nil
+  end
 end

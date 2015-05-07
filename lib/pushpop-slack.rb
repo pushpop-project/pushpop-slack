@@ -21,6 +21,7 @@ module Pushpop
 
     def run(last_response=nil, step_responses=nil)
 
+
       ret = configure(last_response, step_responses)
 
       if _message
@@ -29,7 +30,18 @@ module Pushpop
         Pushpop.logger.debug("No slack message sent - message was not set")
       end
 
+      clear_settings
+
       ret
+    end
+
+    def clear_settings
+      self._username = nil
+      self._message = nil
+      self._icon = nil
+      self._icon_type = nil
+      self._attachments = nil
+      self._unfurl = nil
     end
 
     def send_message

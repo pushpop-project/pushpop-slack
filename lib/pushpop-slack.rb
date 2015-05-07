@@ -25,6 +25,8 @@ module Pushpop
 
       if _message
         send_message
+      else
+        Pushpop.logger.debug("No slack message sent - message was not set")
       end
 
       ret
@@ -35,6 +37,8 @@ module Pushpop
         notifier = ::Slack::Notifier.new WEBHOOK_URL
 
         notifier.ping _message, options
+      else
+        Pushpop.logger.debug("Could not send slack message - SLACK_WEBHOOK_URL is nil or empty")
       end
     end
 

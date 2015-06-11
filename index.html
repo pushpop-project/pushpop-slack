@@ -123,11 +123,14 @@ job do
   <script type="text/javascript" src="assets/js/common-web.min.js"></script>
   <script type='text/javascript'>
     CommonWeb.Keen.Client = new Keen({
-      projectId: '55424a1d672e6c5e6ede3b73',
-      writeKey: '820be8291cfd1d8afa0ab1211fa7eacbf801d595be9256b313c73ff8de90a94c37aa6b7d062a83ae0ed0de273756e06a4bc4bf86d471b92d900536814990dd3a3587946bae050cf2a1bd0760047335095b20c04dff85761502cc424b43ba9ea970a28c6e210c5da256138b8a05cd1d7a'
+      projectId: '557a0832c2266c48aa9977fd',
+      writeKey: '16e4effde55c09ce3541a5b323e4e5e032b5bd278f43f57d57be720c6c500afb7a81fa7c99d1f9886ad9da08da7956d1e25853305e8dd79da3e0ecb0a8160ca9904c25b892b92b53b999b7ea35f531ea04fee5634a43e2b673711814cded8691135824d11f7ff80be4d8cd0eb421c7cb'
     });
 
     CommonWeb.addGlobalProperties(CommonWeb.Keen.globalProperties);
+    CommonWeb.addGlobalProperties({
+      project_name: "Pushpop Slack gh-page"
+    });
     CommonWeb.Callback = CommonWeb.Keen.Callback;
 
     CommonWeb.trackSession();

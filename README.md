@@ -30,7 +30,7 @@ You will also need to set an environment variable for your Slack Webhook. Here's
 Here's a very basic example of sending a message to slack:
 
 ```ruby
-job 'send "Hello, World!" to #general'
+job 'send "Hello, World!" to #general' do
 
 	slack do
 		message 'Hello, World!'
@@ -44,7 +44,7 @@ end
 We use slack-notifier's [`LinkFormatter`](https://github.com/stevenosloan/slack-notifier#links) internally. That means you can either use HTML or Markdown format for your links
 
 ```ruby
-job 'send "Hello, World!" to #general'
+job 'send "Hello, World!" to #general' do
 
 	slack do
 		message 'Where [in the world](http://en.wikipedia.org/wiki/Carmen_Sandiego) is Carmen Sandiego?'
@@ -61,7 +61,7 @@ Your webhook has a default channel that it sends to, but you can also choose a c
 
 
 ```ruby
-job 'send "Hello, World!" to #general'
+job 'send "Hello, World!" to #general' do
 
 	slack do
 		message 'Hello, World!'
@@ -78,7 +78,7 @@ Slack expects the `#` before your channel name. However, if you forget it, pushp
 You can choose a custom username for your message to "come from". This can be a completely new username, or an existing one.
 
 ```ruby
-job 'send "Hello, World!" to #general'
+job 'send "Hello, World!" to #general' do
 
 	slack do
 		message 'Hello, World!'
@@ -95,7 +95,7 @@ You can also set the avatar/icon for the "user" sending the message. Paired with
 You can use emoji icons, or just use an image anywhere on the internet. For emoji, use the slack formatting (ie: `:ghost:`). For an image on the internet, just enter a URL (must start with `http`).
 
 ```ruby
-job 'send "Hello, World!" to #general'
+job 'send "Hello, World!" to #general' do
 
 	slack do
 		message 'Hello, World!'
@@ -114,7 +114,7 @@ By default, Slack does not [unfurl](https://api.slack.com/docs/unfurling) links 
 Calling `unfurl` with no parameter will default to true, or you can pass it a boolean.
 
 ```ruby
-job 'send "Hello, World!" to #general'
+job 'send "Hello, World!" to #general' do
 
 	slack do
 		message 'Where [in the world](http://en.wikipedia.org/wiki/Carmen_Sandiego) is Carmen Sandiego?'
